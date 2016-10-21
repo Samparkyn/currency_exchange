@@ -8,6 +8,7 @@ class Converter
     @data = JSON.load(data)
   end
   
+  
   def get_dates
     dates = []
     @data.each do |element|
@@ -16,19 +17,22 @@ class Converter
     return dates
   end
   
-  def convert(date, curr_from, curr_to)
-    rate = get_rates_by_date(date)
-    rate_from = rate[curr_from].to_i
-    rate_to = rate[curr_to].to_i
-    conversion = (rate_from / rate_to)
-    return conversion
+  
+  def exchange_rate(date, curr_from, curr_to)
+    rates = get_rates_by_date(date)
+    rate_from = rates.map { |x| x[curr_from] }
+    rate_to = rates.map { |x| x[curr_to] }
+    exchange_rate = (rate_to.compact[0].to_f / rate_from.compact[0].to_f).round(4)
+    return exchange_rate
   end
+  
   
   def get_rates_by_date(date)
     @data.find do |object|
-      return object if object['date'] == date
+      return object['rates'] if object['date'] == date
     end
   end
+  
   
   def get_currencies
     currencies = []

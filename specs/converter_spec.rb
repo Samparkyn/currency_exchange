@@ -9,25 +9,25 @@ class TestConverter < MiniTest::Test
   end
 
   def test_get_dates
-    assert_equal("2016-10-14", @converter.get_dates[0])
-    assert_equal(65, @converter.get_dates.count)
+    assert_equal("2016-10-18", @converter.get_dates[0])
+    assert_equal(64, @converter.get_dates.count)
   end
   
   def test_get_rates_by_date
     date = "2016-10-14"
-    assert_equal(date, @converter.get_rates_by_date(date)['date'])
-    assert_equal({"USD" => "1.1002"}, @converter.get_rates_by_date(date)['rates'][0])
+    assert_equal({"EUR" => "1"}, @converter.get_rates_by_date(date)[0])
+    assert_equal({"USD" => "1.1002"}, @converter.get_rates_by_date(date)[1])
   end
   
   def test_get_currencies
-    assert_equal("USD", @converter.get_currencies[0])
-    assert_equal("JPY", @converter.get_currencies[1])
+    assert_equal("EUR", @converter.get_currencies[0])
+    assert_equal("USD", @converter.get_currencies[1])
   end
   
   def test_convert
-    date = "2016-10-14"
-    curr_from = "USD"
-    curr_to = "GBP"
-    assert_equal("1234", @converter.convert(date, curr_from, curr_to))
+    assert_equal(0.8172, @converter.exchange_rate("2016-10-14", "USD", "GBP"))
+    assert_equal(0.9089, @converter.exchange_rate("2016-10-14", "USD", "EUR"))
+    assert_equal(63.6245, @converter.exchange_rate("2016-10-14", "CHF", "RUB"))
+    assert_equal(1.0104, @converter.exchange_rate("2016-10-14", "CHF", "USD"))
   end
 end
