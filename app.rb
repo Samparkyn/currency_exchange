@@ -1,6 +1,15 @@
 require 'sinatra'
-require_relative 'controllers/controller'
+require_relative 'lib/converter'
+
+converter = Converter.new(File.open('data.json'))
 
 get '/' do
+  @dates = converter.get_dates
+  @currencies = converter.get_currencies
   erb :index
+end
+
+post '/result' do
+  @result = converter.get_result(params)
+  erb :result
 end

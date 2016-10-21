@@ -24,10 +24,15 @@ class TestConverter < MiniTest::Test
     assert_equal("USD", @converter.get_currencies[1])
   end
   
-  def test_convert
-    assert_equal(0.8172, @converter.exchange_rate("2016-10-14", "USD", "GBP"))
-    assert_equal(0.9089, @converter.exchange_rate("2016-10-14", "USD", "EUR"))
-    assert_equal(63.6245, @converter.exchange_rate("2016-10-14", "CHF", "RUB"))
-    assert_equal(1.0104, @converter.exchange_rate("2016-10-14", "CHF", "USD"))
+  def test_get_exchange_rate
+    assert_equal(0.8172, @converter.get_exchange_rate("2016-10-14", "USD", "GBP"))
+    assert_equal(0.9089, @converter.get_exchange_rate("2016-10-14", "USD", "EUR"))
+    assert_equal(63.6245, @converter.get_exchange_rate("2016-10-14", "CHF", "RUB"))
+    assert_equal(1.0104, @converter.get_exchange_rate("2016-10-14", "CHF", "USD"))
+  end
+  
+  def test_get_result
+    params = {"date" => "2016-10-14", "curr_from" => "EUR", "curr_to" => "USD", "amount" => "100"}
+    assert_equal(110.02, @converter.get_result(params))
   end
 end
