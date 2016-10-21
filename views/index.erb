@@ -1,12 +1,17 @@
-<h1>Sam's Currency Exchange</h1>
+<div class="title">
+  <h1>Sam's Currency Exchange</h1>
+</div>
+
   <form action="/result" method="post">
     
     <div>
       <p>
     <label for="date">Select Date:</label>
     <select name="date" id="date">
+      <% @dates.each do |each| %>
       <option>
-        
+        <%= each %>
+            <% end %>
       </option>
     </select>
   </p>
@@ -25,9 +30,11 @@
      <p>
        <label for="curr_from">Currency From:</label>
        <select name="curr_from" id="curr_from">
-         <option>
-           
+          <% @currencies.map do |each| %>
+         <option
+           value="<%= each %>"><%= each %>
          </option>
+         <% end %>
             
        </select>
      </p>
@@ -35,11 +42,11 @@
      <p>
        <label for="curr_to">Currency To:</label>
        <select name="curr_to" id="curr_to">
-  
-         <option>
-         
+         <% @currencies.map do |each| %>
+         <option
+          value="<%= each %>"><%= each %>
          </option>
-            
+            <% end %>
        </select>
      </p>
    </div>

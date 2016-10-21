@@ -23,4 +23,11 @@ class TestConverter < MiniTest::Test
     assert_equal("USD", @converter.get_currencies[0])
     assert_equal("JPY", @converter.get_currencies[1])
   end
+  
+  def test_convert
+    date = "2016-10-14"
+    curr_from = "USD"
+    curr_to = "GBP"
+    assert_equal("1234", @converter.convert(date, curr_from, curr_to))
+  end
 end
