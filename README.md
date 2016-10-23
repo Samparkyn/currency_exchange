@@ -12,3 +12,5 @@
 
 #### To run the tests:  
 1. Run `./tests`
+
+Thanks ! :) 
