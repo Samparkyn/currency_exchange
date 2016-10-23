@@ -11,5 +11,6 @@ end
 
 post '/result' do
   @result = converter.get_result(params)
+  @curr_to = params['curr_from']
   erb :result
 end
