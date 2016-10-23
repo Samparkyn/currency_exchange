@@ -1,50 +1,50 @@
-<div class="title">
-  <h1>Sam's Currency Exchange</h1>
-</div>
-
-<form action="/result" method="post">
-  
-  <div class="date-select">
-    <label for="date">Select Date:</label>
-    <select name="date" id="date">
-      <% @dates.each do |date| %>
-      <option>
-        <%= date %>
-        <% end %>
-      </option>
-    </select>
+<section class="main-container">
+  <div class="title">
+    <h1>Sam's Currency Exchange</h1>
   </div>
-  
-  <div class="currencies-select">
-    <label for="curr_from">Currency From:</label>
-    <select name="curr_from" id="curr_from">
-      <% @currencies.map do |each| %>
-      <option value="<%= each %>"><%= each %>
-      </option>
-      <% end %>
-    </select>
+
+  <form action="/result" method="post">
+    <div class="date-select">
+      <label for="date">Date:</label>
+      <select name="date" id="date">
+        <% @dates.each do |date| %>
+        <option>
+          <%= date %>
+          <% end %>
+        </option>
+      </select>
+    </div>
     
-    <label for="curr_to">Currency To:</label>
-    <select name="curr_to" id="curr_to">
-      <% @currencies.map do |each| %>
-      <option value="<%= each %>"><%= each %>
-      </option>
-      <% end %>
-    </select>
-  </div>
-  
-  <div class="amount">
-    <label for="amount">Amount:</label>
-    <input name="amount" type="number" id="amount">
-  </div>
-   
-  <button class="submit-btn" type='submit' value="submit" id="convert">Submit</button>
-  
-</form>
-
-   
-   
-   
-   
-   
-   
+    <div class="amount-select-container">
+      <div class="amount">
+        <label for="amount">Amount:</label>
+        <input name="amount" type="number" step="0.01" min="0">
+      </div>
+      
+      <div class="currencies-select">
+        <div class="select-from">
+          <label for="curr_from">From:</label>
+          <select name="curr_from" id="curr_from">
+            <% @currencies.map do |each| %>
+            <option value="<%= each %>"><%= each %>
+            </option>
+            <% end %>
+          </select>
+        </div>
+        
+        <div class="select-to">
+          <label for="curr_to">To:</label>
+          <select name="curr_to" id="curr_to">
+            <% @currencies.map do |each| %>
+            <option value="<%= each %>"><%= each %>
+            </option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+     
+    <button class="submit-btn" type='submit' value="submit" id="convert">Convert</button>
+  </form>
+</section>
