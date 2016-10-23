@@ -1,0 +1,97 @@
+body {
+  background-color: AliceBlue;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.amount-select-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.currencies-select {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: blue;
+}
+
+.select-to,
+.select-from {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.amount > input {
+  max-width: 50px;
+}
+
+.amount {
+  margin-right: 4rem;
+}
+
+.date-select {
+  margin-bottom: 1rem;
+}
+
+.form {
+  padding-top: 20px;
+}
+
+.date-select label,
+.currencies-select label,
+.amount label {
+  margin-right: 10px;
+  color: blue;
+  font-weight: bold;
+}
+
+#curr_to,
+#curr_from {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #eec111;
+  height: 30px;
+  width: 50px;
+  font-size: 12px;
+}
+
+#date {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: beige;
+  height: 30px;
+  width: 100px;
+  font-size: 12px;
+}
+
+.submit-btn {
+  border-radius: 4px;
+  background-color: skyblue;
+  color: black;
+  font-weight: bold;
+}
+
+.result {
+  color: blue;
+}
+
+.results-container {
+  display: flex;
+  padding-top: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
